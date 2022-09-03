@@ -1,0 +1,7 @@
+pip install flask
+pip install snscrape
+pip install pandas
+pip install transformers
+pip install scipy
+pip install torch
+

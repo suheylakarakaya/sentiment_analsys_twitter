@@ -1,0 +1,77 @@
+<!-- Çalışma dosyasıdır. Projede aktif kullanılmamaktadır.-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+</head>
+
+<body style="background-color:powderblue;">
+
+  <h2>Welcome to Twitter Analysis</h2>
+
+  <form action="{{ url_for('hello_world') }}" method="post">
+    <label>User Name:</label><br>
+    <input type="text" id="username" name="username" placeholder="username"><br><br>
+    <label>Keyword:</label><br>
+    <input type="text" id="keyword" name="keyword" placeholder="keyword"><br><br>
+    
+    <input type="submit" value="Submit">
+  </form> 
+  <table>
+    <caption><b>Sentiment Analysis</b></caption>
+    <tbody>
+    <tr>
+      {% for a in labels %}
+      <td><b> {{ a }} </b></td>
+      {% endfor %} 
+    </tr>
+    <tr>
+      {% for a in scores %}
+      <td><b> {{ a }} </b></td>
+      {% endfor %} 
+    </tr>
+    </tbody>
+  </table>
+  <table>
+    <caption><b>User Informations</b></caption>
+    <tbody>
+    {% for a in data %}
+    <tr>
+      <td><b>Username:</b> {{ a[0] }} </td>
+      <td><b>User Registration Date:</b> {{ a[1] }}</td>
+      <td><b>Followers:</b> {{ a[2] }}</td>
+      <td><b>Following:</b> {{ a[3] }}</td>
+    </tr>
+      {% endfor %} 
+    </tbody>
+  </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Tweet Date</th>
+        <th>Tweet</th>
+        <th>Replies</th>
+        <th>Retweets</th>
+        <th>Likes</th>
+        <th>Url</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in data %}
+      <tr>
+        <td>{{ x[5] }}</td>
+        <td>{{ x[4] }}</td>
+        <td>{{ x[6] }}</td>
+        <td>{{ x[7] }}</td>
+        <td>{{ x[8] }}</td>
+        <td>{{ x[9] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</body>
+</html>
